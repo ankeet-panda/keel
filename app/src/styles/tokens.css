@@ -1,0 +1,192 @@
+/* Keel tokens. Light is the default; [data-theme="dark"] is set by the theme provider (system or chosen). */
+:root {
+  color-scheme: light;
+
+  /* Spacing: 4 px base, 8 px rhythm */
+  --space-0-5: 0.125rem; /* 2 nudge */
+  --space-1: 0.25rem;    /* 4 */
+  --space-2: 0.5rem;     /* 8 */
+  --space-3: 0.75rem;    /* 12 */
+  --space-4: 1rem;       /* 16 */
+  --space-5: 1.25rem;    /* 20 */
+  --space-6: 1.5rem;     /* 24 */
+  --space-8: 2rem;       /* 32 */
+  --space-10: 2.5rem;    /* 40 */
+  --space-12: 3rem;      /* 48 */
+  --space-16: 4rem;      /* 64 */
+  --space-20: 5rem;      /* 80 */
+  --space-24: 6rem;      /* 96 */
+  --section-gap: 9rem;   /* 144 marketing sections only */
+  --section-gap-s: 7.5rem; /* 120 marketing sections only */
+  --section-gap-phone: clamp(3.5rem, 2rem + 6vw, 7rem); /* phone marketing gap */
+
+  /* Layout */
+  --container: 82rem;    /* 1312 page content */
+  --gutter: clamp(1rem, 4.4vw, 4rem); /* page side gutter */
+  --app-gap: 1rem;       /* one app gap, both axes */
+  --hour: 64px;          /* timeline: one hour of height */
+
+  /* Radius ladder */
+  --radius-chip: 6px;    /* chips, keycaps */
+  --radius-control: 10px; /* inputs, blocks, menu items */
+  --radius-card: 16px;   /* cards and panels */
+  --radius-panel: 24px;  /* sheets, focus panel, demo stages */
+  --radius-pill: 999px;  /* buttons, tags */
+
+  /* Type */
+  --font-text: "Hanken Grotesk", ui-sans-serif, "Segoe UI", sans-serif; /* all UI */
+  --font-display: "Newsreader", "Iowan Old Style", Georgia, serif;        /* marketing headlines only */
+  --text-12: 0.75rem;  /* labels, meta */
+  --text-13: 0.8125rem; /* secondary, dense rows */
+  --text-14: 0.875rem; /* app body */
+  --text-16: 1rem;     /* card titles, inputs on phone */
+  --text-20: 1.25rem;  /* panel titles */
+  --text-24: 1.5rem;   /* page title, KPI */
+  --text-32: 2rem;     /* largest app figure */
+  --text-48: 3rem;     /* focus clock inside page demos */
+  --text-timer: clamp(3rem, 2rem + 4vw, 5rem); /* focus timer digits (focus view only) */
+  --step-body: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);    /* marketing body */
+  --step-lead: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);   /* marketing lead */
+  --step-head: clamp(2rem, 1.3rem + 2.6vw, 3.5rem);       /* section titles */
+  --step-display: clamp(2.75rem, 1.4rem + 5.2vw, 5.5rem); /* hero headline */
+  --weight-regular: 400; /* see the light block for its role */
+  --weight-medium: 500; /* see the light block for its role */
+  --weight-semibold: 600; /* see the light block for its role */
+  --leading-display: 1.04; /* see the light block for its role */
+  --leading-heading: 1.15; /* see the light block for its role */
+  --leading-ui: 1.35; /* see the light block for its role */
+  --leading-body: 1.55; /* see the light block for its role */
+  --tracking-heading: -0.015em; /* see the light block for its role */
+  --tracking-head: -0.025em; /* see the light block for its role */
+  --tracking-display: -0.035em; /* see the light block for its role */
+
+  /* Neutrals: warm paper */
+  --n-h: 80; /* see the light block for its role */
+  --n-c: 0.006; /* see the light block for its role */
+  --bg: oklch(0.975 var(--n-c) var(--n-h));        /* page ground */
+  --surface: oklch(0.995 0.002 var(--n-h));        /* cards, panels */
+  --surface-2: oklch(0.955 var(--n-c) var(--n-h)); /* wells, hover rows, inputs on cards */
+  --surface-3: oklch(0.925 var(--n-c) var(--n-h)); /* pressed, active segment */
+  --line: oklch(0.905 var(--n-c) var(--n-h));      /* hairlines on cards (decorative) */
+  --line-soft: oklch(0.94 var(--n-c) var(--n-h));  /* hour rules */
+  --border-control: oklch(0.62 0.008 var(--n-h));  /* input and toggle edges, >= 3:1 on surface */
+  --text: oklch(0.22 0.012 240);    /* primary text on bg, surface, surface-2 */
+  --text-2: oklch(0.43 0.012 240);  /* secondary text on bg, surface, surface-2 */
+  --text-3: oklch(0.51 0.01 240);   /* meta text on surface and bg (>= 4.5:1) */
+
+  /* Deep water: the brand ink, deep work and the primary action */
+  --deep: oklch(0.38 0.075 228);        /* primary fill, block in progress, deep marks */
+  --deep-hover: oklch(0.33 0.07 228);   /* primary fill hover (one step of its own colour) */
+  --deep-head: oklch(0.52 0.09 205);    /* end of the ring and bar sweep (hue turn 23 degrees) */
+  --on-deep: oklch(0.985 0.005 228);    /* text on --deep */
+  --deep-text: oklch(0.40 0.08 228);    /* deep as text on surface and bg */
+  --live: var(--deep);                  /* fill of the block in progress (the one deep object) */
+  --on-live: var(--on-deep);            /* text on --live */
+  --focus: oklch(0.45 0.11 228);        /* focus ring, >= 3:1 on every ground */
+
+  /* Kinds of work: tint (block fill), ink (text and glyph on the tint), mark (profile and chart) */
+  --k-deep-tint: oklch(0.915 0.035 228); /* block, chip and dot fill for this kind */
+  --k-deep-ink: oklch(0.33 0.075 228); /* text and glyphs on this kind’s tint (>= 4.5:1) */
+  --k-deep-mark: oklch(0.42 0.08 228); /* surface strip, legend and chart marks for this kind (>= 3:1 on surface) */
+  --k-shallow-tint: oklch(0.945 0.03 190); /* block, chip and dot fill for this kind */
+  --k-shallow-ink: oklch(0.36 0.06 195); /* text and glyphs on this kind’s tint (>= 4.5:1) */
+  --k-shallow-mark: oklch(0.66 0.08 190); /* surface strip, legend and chart marks for this kind (>= 3:1 on surface) */
+  --k-meeting-tint: oklch(0.935 0.035 40); /* block, chip and dot fill for this kind */
+  --k-meeting-ink: oklch(0.42 0.11 35); /* text and glyphs on this kind’s tint (>= 4.5:1) */
+  --k-meeting-mark: oklch(0.66 0.13 38); /* surface strip, legend and chart marks for this kind (>= 3:1 on surface) */
+  --k-break-tint: oklch(0.94 0.035 145); /* block, chip and dot fill for this kind */
+  --k-break-ink: oklch(0.38 0.07 150); /* text and glyphs on this kind’s tint (>= 4.5:1) */
+  --k-break-mark: oklch(0.68 0.09 148); /* surface strip, legend and chart marks for this kind (>= 3:1 on surface) */
+
+  /* Status */
+  --positive-text: oklch(0.45 0.1 155); /* "done" and gains, text on surface */
+  --negative-text: oklch(0.48 0.15 28); /* errors, text on surface */
+  --now: oklch(0.58 0.17 32);           /* the now line and its dot (a mark, >= 3:1 on bg) */
+  --now-text: oklch(0.48 0.15 30);      /* the now time label text */
+
+  /* Shadows: neutral only */
+  --shadow-rest: 0 1px 2px oklch(0.25 0.01 var(--n-h) / 0.05); /* see the light block for its role */
+  --shadow-float: 0 10px 30px oklch(0.25 0.02 var(--n-h) / 0.10), 0 2px 6px oklch(0.25 0.02 var(--n-h) / 0.06); /* see the light block for its role */
+  --shadow-overlay: 0 24px 60px oklch(0.2 0.02 var(--n-h) / 0.16); /* see the light block for its role */
+  --scrim: oklch(0.2 0.02 228 / 0.28);   /* behind sheets */
+  --stage-ground: oklch(0.935 0.014 215); /* demo stages and the hero plate: pale sea, product cards sit on it */
+  --band: oklch(0.27 0.045 228);          /* the deep band behind the focus section */
+  --on-band: oklch(0.96 0.008 228);       /* text on --band */
+  --on-band-2: oklch(0.82 0.02 228);      /* secondary text on --band */
+  --band-mark: oklch(0.8 0.08 205);       /* ticks and the current step on --band */
+
+  /* Focus ring */
+  --focus-width: 2px; /* see the light block for its role */
+  --focus-offset: 2px; /* see the light block for its role */
+
+  /* Z */
+  --z-raised: 10; /* see the light block for its role */
+  --z-sticky: 200; /* see the light block for its role */
+  --z-sheet: 400; /* see the light block for its role */
+  --z-focus: 450; /* see the light block for its role */
+  --z-toast: 500; /* see the light block for its role */
+  --z-ghost: 600; /* see the light block for its role */
+
+  /* Motion */
+  --dur-micro: 120ms;  /* press, colour */
+  --dur-short: 220ms;  /* hover, settle, panel */
+  --dur-long: 420ms;   /* sheet, focus view */
+  --dur-reveal: 800ms; /* marketing section reveal */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1); /* see the light block for its role */
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1); /* see the light block for its role */
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1); /* see the light block for its role */
+  --rise: 8px; /* see the light block for its role */
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --n-h: 228; /* dark value; same role and grounds as the light token */
+  --n-c: 0.014; /* dark value; same role and grounds as the light token */
+  --bg: oklch(0.165 var(--n-c) var(--n-h)); /* dark value; same role and grounds as the light token */
+  --surface: oklch(0.2 var(--n-c) var(--n-h)); /* dark value; same role and grounds as the light token */
+  --surface-2: oklch(0.235 var(--n-c) var(--n-h)); /* dark value; same role and grounds as the light token */
+  --surface-3: oklch(0.275 var(--n-c) var(--n-h)); /* dark value; same role and grounds as the light token */
+  --line: oklch(0.3 var(--n-c) var(--n-h)); /* dark value; same role and grounds as the light token */
+  --line-soft: oklch(0.255 var(--n-c) var(--n-h)); /* dark value; same role and grounds as the light token */
+  --border-control: oklch(0.55 0.014 var(--n-h)); /* dark value; same role and grounds as the light token */
+  --text: oklch(0.94 0.006 var(--n-h)); /* dark value; same role and grounds as the light token */
+  --text-2: oklch(0.8 0.01 var(--n-h)); /* dark value; same role and grounds as the light token */
+  --text-3: oklch(0.7 0.012 var(--n-h)); /* dark value; same role and grounds as the light token */
+
+  --deep: oklch(0.68 0.085 222); /* dark value; same role and grounds as the light token */
+  --deep-hover: oklch(0.78 0.08 222); /* dark value; same role and grounds as the light token */
+  --deep-head: oklch(0.82 0.1 200); /* dark value; same role and grounds as the light token */
+  --on-deep: oklch(0.18 0.02 228); /* dark value; same role and grounds as the light token */
+  --deep-text: oklch(0.8 0.08 222);
+  --live: oklch(0.43 0.055 224); /* dark: a deep, quieter fill so a long block doesn't flood the screen */
+  --on-live: oklch(0.97 0.01 224); /* dark: text on --live */ /* dark value; same role and grounds as the light token */
+  --focus: oklch(0.78 0.1 222); /* dark value; same role and grounds as the light token */
+
+  --k-deep-tint: oklch(0.3 0.05 228); /* dark value; same role and grounds as the light token */
+  --k-deep-ink: oklch(0.9 0.04 225); /* dark value; same role and grounds as the light token */
+  --k-deep-mark: oklch(0.7 0.09 225); /* dark value; same role and grounds as the light token */
+  --k-shallow-tint: oklch(0.29 0.035 195); /* dark value; same role and grounds as the light token */
+  --k-shallow-ink: oklch(0.9 0.04 190); /* dark value; same role and grounds as the light token */
+  --k-shallow-mark: oklch(0.66 0.07 190); /* dark value; same role and grounds as the light token */
+  --k-meeting-tint: oklch(0.31 0.055 22); /* dark value; same role and grounds as the light token */
+  --k-meeting-ink: oklch(0.9 0.05 28); /* dark value; same role and grounds as the light token */
+  --k-meeting-mark: oklch(0.7 0.12 40); /* dark value; same role and grounds as the light token */
+  --k-break-tint: oklch(0.29 0.04 150); /* dark value; same role and grounds as the light token */
+  --k-break-ink: oklch(0.9 0.05 150); /* dark value; same role and grounds as the light token */
+  --k-break-mark: oklch(0.7 0.09 150); /* dark value; same role and grounds as the light token */
+
+  --positive-text: oklch(0.78 0.12 155); /* dark value; same role and grounds as the light token */
+  --negative-text: oklch(0.75 0.13 28); /* dark value; same role and grounds as the light token */
+  --now: oklch(0.7 0.16 35); /* dark value; same role and grounds as the light token */
+  --now-text: oklch(0.78 0.13 35); /* dark value; same role and grounds as the light token */
+
+  --shadow-rest: none; /* dark value; same role and grounds as the light token */
+  --shadow-float: 0 0 0 1px var(--line), 0 12px 32px oklch(0 0 0 / 0.35); /* dark value; same role and grounds as the light token */
+  --shadow-overlay: 0 0 0 1px var(--line), 0 24px 60px oklch(0 0 0 / 0.45); /* dark value; same role and grounds as the light token */
+  --scrim: oklch(0.05 0.01 228 / 0.55); /* dark value; same role and grounds as the light token */
+  --stage-ground: oklch(0.225 0.022 225);
+  --band: oklch(0.21 0.03 226); /* dark: a step above the ground */
+  --on-band: oklch(0.95 0.006 228); /* dark: text on --band */
+  --on-band-2: oklch(0.8 0.012 228); /* dark: secondary text on --band */
+  --band-mark: oklch(0.8 0.08 205); /* dark: ticks on --band */ /* dark value; same role and grounds as the light token */
+}
